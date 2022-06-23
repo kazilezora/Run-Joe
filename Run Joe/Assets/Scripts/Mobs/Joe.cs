@@ -8,7 +8,7 @@ public class Joe : MonoBehaviour
 {
     [SerializeField] private float yurumeHizi, kosmaHizi,enerjiYenileme,enerjiHarcama;
     private float enerji;
-    private bool hareketEdebilirmi = true,kosuyormu;
+    private bool hareketEdebilirmi = true,kosuyormu,yatayHareket,dikeyHareket;
     Rigidbody2D fizik;
     Animator animator;
     private FixedJoystick joystick;
@@ -39,6 +39,7 @@ public class Joe : MonoBehaviour
         //Yatay eksende hareket:
         if(joystick.Horizontal >= 0.2f || Input.GetAxis("Horizontal") > 0)
         {
+            yatayHareket = true;
             if (kosuyormu)
             {
                 fizik.position += new Vector2(kosmaHizi * Time.deltaTime, 0);
@@ -50,6 +51,7 @@ public class Joe : MonoBehaviour
         }
         else if(joystick.Horizontal <= -0.2f || Input.GetAxis("Horizontal") < 0)
         {
+            yatayHareket = true;
             if (kosuyormu)
             {
                 fizik.position += new Vector2(kosmaHizi * Time.deltaTime*-1, 0);
@@ -62,11 +64,13 @@ public class Joe : MonoBehaviour
         else
         {
             fizik.position += new Vector2(0, 0);
+            yatayHareket = false;
         }
 
         //dikey eksende hareket:
         if (joystick.Vertical >= 0.2f || Input.GetAxis("Vertical") > 0)
         {
+            dikeyHareket = true;
             if (kosuyormu)
             {
                 fizik.position += new Vector2(0, kosmaHizi*Time.deltaTime);
@@ -78,6 +82,7 @@ public class Joe : MonoBehaviour
         }
         else if (joystick.Vertical <= -0.2f || Input.GetAxis("Vertical") < 0)
         {
+            dikeyHareket = true;
             if (kosuyormu)
             {
                 fizik.position += new Vector2(0, kosmaHizi*Time.deltaTime*-1);
@@ -90,6 +95,33 @@ public class Joe : MonoBehaviour
         else
         {
             fizik.position += new Vector2(0, 0);
+            dikeyHareket = false;
+        }
+
+        if(joystick.Horizontal >= 0.2f)
+        {
+            animator.SetFloat("yon", 0);
+        }
+        else if(joystick.Horizontal <= -0.2f)
+        {
+            animator.SetFloat("yon", 2);
+        }
+        else if(joystick.Vertical >= 0.2f)
+        {
+            animator.SetFloat("yon", 3);
+        }
+        else
+        {
+            animator.SetFloat("yon", 1);
+        }
+
+        if(yatayHareket || dikeyHareket)
+        {
+            animator.SetBool("yuru", true);
+        }
+        else
+        {
+            animator.SetBool("yuru", false);
         }
     }
 
