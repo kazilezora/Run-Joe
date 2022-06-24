@@ -37,7 +37,7 @@ public class Joe : MonoBehaviour
     void Hareket()
     {
         //Yatay eksende hareket:
-        if(joystick.Horizontal >= 0.2f || Input.GetAxis("Horizontal") > 0)
+        if(joystick.Horizontal >= 0.2f)
         {
             yatayHareket = true;
             if (kosuyormu)
@@ -49,7 +49,7 @@ public class Joe : MonoBehaviour
                 fizik.position += new Vector2(yurumeHizi * Time.deltaTime, 0);
             }
         }
-        else if(joystick.Horizontal <= -0.2f || Input.GetAxis("Horizontal") < 0)
+        else if(joystick.Horizontal <= -0.2f)
         {
             yatayHareket = true;
             if (kosuyormu)
@@ -68,7 +68,7 @@ public class Joe : MonoBehaviour
         }
 
         //dikey eksende hareket:
-        if (joystick.Vertical >= 0.2f || Input.GetAxis("Vertical") > 0)
+        if (joystick.Vertical >= 0.2f)
         {
             dikeyHareket = true;
             if (kosuyormu)
@@ -80,7 +80,7 @@ public class Joe : MonoBehaviour
                 fizik.position += new Vector2(0, yurumeHizi*Time.deltaTime);
             }
         }
-        else if (joystick.Vertical <= -0.2f || Input.GetAxis("Vertical") < 0)
+        else if (joystick.Vertical <= -0.2f)
         {
             dikeyHareket = true;
             if (kosuyormu)
@@ -171,4 +171,5 @@ public class Joe : MonoBehaviour
             }
         }
     }
+
 }
