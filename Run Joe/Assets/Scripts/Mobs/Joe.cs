@@ -98,24 +98,49 @@ public class Joe : MonoBehaviour
             dikeyHareket = false;
         }
 
-        if(joystick.Horizontal >= 0.2f)
+        if(joystick.Horizontal >= 0.2f && !(joystick.Vertical >= 0.2f || joystick.Vertical <= -0.2f))
         {
+            //sað
             animator.SetFloat("yon", 0);
         }
-        else if(joystick.Horizontal <= -0.2f)
+        else if(joystick.Horizontal >= 0.2f && joystick.Vertical <= -0.2f)
         {
-            animator.SetFloat("yon", 2);
+            //sað alt çapraz
+            //animator.SetFloat("yon", 1);
         }
-        else if(joystick.Vertical >= 0.2f)
+        else if(joystick.Vertical <= -0.2f && !(joystick.Horizontal>= 0.2f || joystick.Horizontal <= -0.2f))
         {
-            animator.SetFloat("yon", 3);
-        }
-        else
-        {
+            //aþaðý
             animator.SetFloat("yon", 1);
         }
+        else if(joystick.Horizontal <= -0.2f && joystick.Vertical <= -0.2f)
+        {
+            //sol alt çapraz
+            //animator.SetFloat("yon", 3);
+        }
+        else if(joystick.Horizontal <= -0.2f && !(joystick.Vertical >= 0.2f || joystick.Vertical <= -0.2f))
+        {
+            //sol
+            animator.SetFloat("yon", 2);
+        }
+        else if (joystick.Horizontal <= -0.2f && joystick.Vertical >= 0.2f)
+        {
+            //sol üst çapraz
+            //animator.SetFloat("yon", 5);
+        }
+        else if (joystick.Vertical >= 0.2f && !(joystick.Horizontal >= 0.2f || joystick.Horizontal <= -0.2f))
+        {
+            //üst
+            print("üst");
+            animator.SetFloat("yon", 3);
+        }
+        else if (joystick.Horizontal >= 0.2f && joystick.Vertical >= 0.2f)
+        {
+            //sað üst çapraz
+            //animator.SetFloat("yon", 7);
+        }
 
-        if(yatayHareket || dikeyHareket)
+        if (yatayHareket || dikeyHareket)
         {
             animator.SetBool("yuru", true);
         }

@@ -115,13 +115,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: yuru
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -224,7 +224,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Yon
+    m_DirectBlendParameter: yon
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 2263ccdfaf9e405488b247392fd444c7, type: 2}
@@ -232,7 +232,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Yon
+    m_DirectBlendParameter: yon
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: c845e88a1a56dc041bc5b178414e945c, type: 2}
@@ -240,7 +240,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Yon
+    m_DirectBlendParameter: yon
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: adccd60f0bd9ef3499b9ebe1abc6694f, type: 2}
@@ -248,7 +248,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Yon
+    m_DirectBlendParameter: yon
     m_Mirror: 0
   m_BlendParameter: yon
   m_BlendParameterY: Blend
