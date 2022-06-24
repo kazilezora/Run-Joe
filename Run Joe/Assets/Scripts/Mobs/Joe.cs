@@ -8,13 +8,14 @@ public class Joe : MonoBehaviour
 {
     [SerializeField] private float yurumeHizi, kosmaHizi,enerjiYenileme,enerjiHarcama;
     private float enerji = 100;
-    private bool hareketEdebilirmi = true,kosuyormu,yatayHareket,dikeyHareket;
+    private bool hareketEdebilirmi = true,yatayHareket,dikeyHareket;
     Rigidbody2D fizik;
     Animator animator;
     private FixedJoystick joystick;
     private EtkilesimTusu etkilesimKutusu;
     private Image enerjiBari;
     private Text enerjiGostergesi;
+    public bool kosuyormu;
     void Start()
     {
         Ayarlar();
@@ -133,7 +134,6 @@ public class Joe : MonoBehaviour
         else if (joystick.Vertical >= 0.2f && !(joystick.Horizontal >= 0.2f || joystick.Horizontal <= -0.2f))
         {
             //üst
-            print("üst");
             animator.SetFloat("yon", 3);
         }
         else if (joystick.Horizontal >= 0.2f && joystick.Vertical >= 0.2f)
