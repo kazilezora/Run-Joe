@@ -13,7 +13,7 @@ public class Joe : MonoBehaviour
     Animator animator;
     private FixedJoystick joystick;
     private EtkilesimTusu etkilesimKutusu;
-    private Image enerjiBari;
+    //private Image enerjiBari;
     private Text enerjiGostergesi;
     public bool kosuyormu;
     void Start()
@@ -31,7 +31,7 @@ public class Joe : MonoBehaviour
     {
         joystick = GameObject.FindObjectOfType<FixedJoystick>();
         etkilesimKutusu= GameObject.FindObjectOfType<EtkilesimTusu>();
-        enerjiBari = GameObject.Find("Enerji Bari").GetComponent<Image>();
+        //enerjiBari = GameObject.Find("Enerji Bari").GetComponent<Image>();
         enerjiGostergesi = GameObject.Find("Enerji Gostergesi").GetComponent<Text>();
         fizik = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -154,7 +154,7 @@ public class Joe : MonoBehaviour
 
     void Kos()
     {
-        enerjiBari.fillAmount = enerji / 100;
+        //enerjiBari.fillAmount = enerji / 100;
         enerjiGostergesi.text = System.Convert.ToInt32(enerji).ToString();
         if ((etkilesimKutusu.basilimi || Input.GetAxis("Jump") > 0) && enerji > 0)
         {
