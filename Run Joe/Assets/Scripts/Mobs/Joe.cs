@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class Joe : MonoBehaviour
 {
     [SerializeField] private float yurumeHizi, kosmaHizi,enerjiYenileme,enerjiHarcama;
-    private float enerji;
+    private float enerji = 100;
     private bool hareketEdebilirmi = true,kosuyormu,yatayHareket,dikeyHareket;
     Rigidbody2D fizik;
     Animator animator;
     private FixedJoystick joystick;
-    [SerializeField] private EtkilesimTusu etkilesimTusu;
-    [SerializeField] private Text enerjiGostergesi;
+    private EtkilesimTusu etkilesimKutusu;
+    private Image enerjiBari;
+    private Text enerjiGostergesi;
     void Start()
     {
         Ayarlar();
@@ -28,7 +29,8 @@ public class Joe : MonoBehaviour
     void Ayarlar()
     {
         joystick = GameObject.FindObjectOfType<FixedJoystick>();
-        etkilesimTusu = GameObject.FindObjectOfType<EtkilesimTusu>();
+        etkilesimKutusu= GameObject.FindObjectOfType<EtkilesimTusu>();
+        enerjiBari = GameObject.Find("Enerji Bari").GetComponent<Image>();
         enerjiGostergesi = GameObject.Find("Enerji Gostergesi").GetComponent<Text>();
         fizik = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -152,8 +154,9 @@ public class Joe : MonoBehaviour
 
     void Kos()
     {
+        enerjiBari.fillAmount = enerji / 100;
         enerjiGostergesi.text = System.Convert.ToInt32(enerji).ToString();
-        if ((etkilesimTusu.basilimi || Input.GetAxis("Jump") > 0) && enerji > 0)
+        if ((etkilesimKutusu.basilimi || Input.GetAxis("Jump") > 0) && enerji > 0)
         {
             kosuyormu = true;
             enerji += Time.deltaTime * enerjiHarcama*-1;
