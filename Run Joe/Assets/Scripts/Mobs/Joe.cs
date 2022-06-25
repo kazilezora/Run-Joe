@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Joe : MonoBehaviour
 {
-    [SerializeField] private float yurumeHizi, kosmaHizi,enerjiYenileme,enerjiHarcama;
-    private float enerji = 100;
+    [SerializeField] private float gercekYurumeHizi,GercekKosmaHizi,enerjiYenileme,enerjiHarcama;
+    private float enerji = 100, yurumeHizi, kosmaHizi,cikarilicakHiz;
     private bool hareketEdebilirmi = true,yatayHareket,dikeyHareket;
     Rigidbody2D fizik;
     Animator animator;
@@ -19,6 +19,7 @@ public class Joe : MonoBehaviour
     void Start()
     {
         Ayarlar();
+        HareketSacmala();
     }
 
     void Update()
@@ -39,6 +40,8 @@ public class Joe : MonoBehaviour
 
     void Hareket()
     {
+        yurumeHizi = gercekYurumeHizi - cikarilicakHiz;
+        kosmaHizi = GercekKosmaHizi - cikarilicakHiz;
         //Yatay eksende hareket:
         if(joystick.Horizontal >= 0.2f)
         {
@@ -173,6 +176,12 @@ public class Joe : MonoBehaviour
                 enerji = 100;
             }
         }
+    }
+
+    void HareketSacmala()
+    {
+        cikarilicakHiz = Random.Range(0.1f, 1.6f);
+        Invoke("HareketSacmala", Random.Range(0.3f, 1f));
     }
 
 }
