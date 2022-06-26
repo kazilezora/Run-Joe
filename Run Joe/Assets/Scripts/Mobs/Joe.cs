@@ -180,7 +180,7 @@ public class Joe : MonoBehaviour
 
     void HareketSacmala()
     {
-        cikarilicakHiz = Random.Range(0.1f, 1.6f);
+        cikarilicakHiz = Random.Range(0.1f, 1f);
         Invoke("HareketSacmala", Random.Range(0.3f, 1f));
     }
 
